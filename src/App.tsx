@@ -1,6 +1,5 @@
-import React from "react";
-function App() {
-  return <>Hello</>;
-}
+import CommingSoon from "./pages/CommingSoon";
 
-export default App;
+export default function App() {
+  return <CommingSoon />;
+}
