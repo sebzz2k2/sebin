@@ -28,19 +28,19 @@ const navContents = [
   },
   {
     name: "Projects",
-    href: "#",
+    href: "/projects",
   },
   {
     name: "Experience",
-    href: "#",
+    href: "/experience",
   },
   {
     name: "Blogs",
-    href: "#",
+    href: "/blogs",
   },
   {
     name: "Contact",
-    href: "#",
+    href: "/contact",
   },
 ];
 
