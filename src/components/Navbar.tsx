@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import "./styles.css";
+import Button from "./common/button";
 
 const Navbar = () => {
   return (
@@ -10,9 +11,9 @@ const Navbar = () => {
         <div className="flex items-center"></div>
         <div className="flex items-center w-2/4 justify-between">
           <NavLinks />
-          <button className="w-[7rem] h-[2.5rem] p-2.5 bg-white rounded shadow-xl border font-firaCode text-cyan-950 border-cyan-950 justify-center items-center gap-2.5 inline-flex text-lg">
+          <Button width="120px" height="40px">
             Resume
-          </button>
+          </Button>
         </div>
       </div>
     </nav>
