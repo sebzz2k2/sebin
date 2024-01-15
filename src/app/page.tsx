@@ -21,7 +21,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex flex-col gap-10">
-        <div className="text-2xl">
+        <div className="text-2xl tracking-widest">
           A highly skilled software enginner with expertise in designing,
           developing, and integrating software.
         </div>
