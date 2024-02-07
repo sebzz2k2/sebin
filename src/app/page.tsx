@@ -25,6 +25,46 @@ const Hero = () => {
           A highly skilled software enginner with expertise in designing,
           developing, and integrating software.
         </div>
+        <div style={{ display: "flex", alignItems: "flex-start" }}>
+          <img
+            src="https://techstack-generator.vercel.app/react-icon.svg"
+            alt="icon"
+            width="65"
+            height="65"
+          />
+          <img
+            src="https://techstack-generator.vercel.app/ts-icon.svg"
+            alt="icon"
+            width="65"
+            height="65"
+          />
+          <img
+            src="https://techstack-generator.vercel.app/js-icon.svg"
+            alt="icon"
+            width="65"
+            height="65"
+          />
+        </div>
+        <div style={{ display: "flex", alignItems: "flex-start" }}>
+          <img
+            src="https://techstack-generator.vercel.app/docker-icon.svg"
+            alt="icon"
+            width="65"
+            height="65"
+          />
+          <img
+            src="https://techstack-generator.vercel.app/github-icon.svg"
+            alt="icon"
+            width="65"
+            height="65"
+          />
+          <img
+            src="https://techstack-generator.vercel.app/restapi-icon.svg"
+            alt="icon"
+            width="65"
+            height="65"
+          />
+        </div>
         <Button width="250px" height="50px">
           Contact me
           <GrLinkNext style={{ color: "##044149" }} />
