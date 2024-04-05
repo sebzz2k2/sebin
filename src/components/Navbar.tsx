@@ -12,7 +12,14 @@ const Navbar = () => {
         <div className="flex items-center w-2/4 justify-between">
           <NavLinks />
           <Button width="120px" height="40px">
-            Resume
+            <Link
+              href="https://github.com/sebzz2k2/sebin-assets/raw/main/sebin-resume.pdf"
+              className="flex items-center justify-center w-[120px] h-[40px]"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              Resume
+            </Link>
           </Button>
         </div>
       </div>
