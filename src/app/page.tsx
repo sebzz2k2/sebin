@@ -3,7 +3,7 @@ import "./globals.css";
 import Button from "@/components/common/button";
 import { GrLinkNext } from "react-icons/gr";
 
-export default function Home() {
+export default function Page() {
   return (
     <div className="h-screen flex items-center px-24">
       <Hero />

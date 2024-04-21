@@ -24,7 +24,7 @@ const SideIcons = [
 
 const SideLink = () => {
   return (
-    <div className="fixed xl:right-28 h-screen rounded-full z-10 transform -translate-y-1/2 md:-translate-y-1/3">
+    <div className="fixed xl:right-28 h-screen rounded-full z-10 transform -translate-y-1/2 md:-translate-y-1/2">
       <div className="flex xl:gap-8 flex-col xl:mb-8 md:mb-2 lg:gap-2">
         {SideIcons.map((icon, index) => (
           <Link

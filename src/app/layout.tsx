@@ -22,15 +22,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-neutral-100 w-screen overflow-hidden">
+        <div className="bg-neutral-100 w-screen overflow-hidden ">
           <Navbar />
-          <div className="blob-c overflow-hidden scroll-m-3">
-            <div className="shape-blob one"></div>
+          <div className=" blob-c overflow-hidden scroll-m-3">
+            <div className="shape-blob one "></div>
             <div className="shape-blob two"></div>
             <div className="shape-blob three"></div>
           </div>
-          {children}
-          <SideLink />
+          <div className="mt-24 z-50 fixed w-full">
+            {children}
+            <SideLink />
+          </div>
           <Analytics />
           <SpeedInsights />
         </div>
