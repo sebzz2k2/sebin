@@ -2,22 +2,26 @@ import Button from "@/components/common/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
+import axios from "axios";
 
-const Projects = () => {
+async function fetchProjects() {
+  const projectsUrl =
+    "https://raw.githubusercontent.com/sebzz2k2/sebin-assets/main/portfolio/projects.json";
+  const response = await axios.get(projectsUrl);
+  return response.data;
+}
+const Projects = async () => {
+  const projects = await fetchProjects();
   return (
     <div className="h-[calc(100vh-6rem)] px-16 py-8 flex  flex-col gap-16 overflow-auto">
-      {[...Array(3)].map((_, index) => (
+      {projects.map((project: any) => (
         <ProjectCard
-          key={index}
-          title="Project 1"
-          githubLink="https://github.com/sebzz2k2/log-pose"
-          projectLink="https://log-pose.vercel.app/"
-          techStack={["React", "TailwindCSS", "TypeScript"]}
-          projectDescription={[
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-          ]}
+          key={project.id}
+          title={project.title}
+          githubLink={project.githubLink}
+          projectLink={project.projectLink}
+          techStack={project.techStack}
+          projectDescription={project.projectDescription}
         />
       ))}
     </div>
@@ -41,9 +45,12 @@ const ProjectCard = ({
   projectDescription,
 }: ProjectCardProps) => {
   return (
-    <div className="w-4/5 flex flex-col gap-4 bg-white rounded-md shadow-md p-6">
+    <div
+      key={title}
+      className="w-4/5 flex flex-col gap-4 bg-white rounded-md shadow-md p-6"
+    >
       <div className="">
-        <h2 className="text-3xl font-firaCode font-bold text-cyan-900">
+        <h2 className="text-2xl font-firaCode font-semibold text-cyan-900">
           {title}
         </h2>
         <h4 className="flex gap-2">
