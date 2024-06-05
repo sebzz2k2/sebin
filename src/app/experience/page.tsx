@@ -18,7 +18,13 @@ const Experience = () => {
 };
 
 export default Experience;
-
+interface Experience {
+  title: string;
+  company: string;
+  startDate: string;
+  endDate: string;
+  responsibilities: string[];
+}
 const ExperienceTimeline = () => {
   const [experiences, setExperiences] = React.useState([]);
 
@@ -31,11 +37,12 @@ const ExperienceTimeline = () => {
     };
     fetchExperiences();
   }, []);
+
   return (
     <VerticalTimeline>
-      {experiences.map((experience: any) => (
+      {experiences.map((experience: Experience, idx: number) => (
         <VerticalTimelineElement
-          key={experience.id}
+          key={idx}
           date={`${experience.startDate} - ${experience.endDate}`}
           dateClassName="text-2xl font-firaCode font-bold text-cyan-900"
           iconStyle={{ background: "#2d3748", color: "#fff" }}
