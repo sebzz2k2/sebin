@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import "./globals.css";
 import Button from "@/components/common/button";
 import { GrLinkNext } from "react-icons/gr";
+import Modal from "@/components/common/Modal/ContactMe";
 
 export default function Page() {
   return (
@@ -12,6 +14,11 @@ export default function Page() {
 }
 
 const Hero = () => {
+  const [showModal, setShowModal] = React.useState(false);
+
+  const handleModal = () => {
+    setShowModal((prev) => !prev);
+  };
   return (
     <div className="z-10 font-firaCode text-cyan-950 flex gap-12 flex-col w-3/4">
       <div className="flex flex-col gap-4 w-max">
@@ -25,11 +32,13 @@ const Hero = () => {
           A highly skilled software enginner with expertise in designing,
           developing, and integrating software.
         </div>
-        <Button width="250px" height="50px">
+        <Button width="250px" height="50px" onClick={handleModal}>
           Contact me
           <GrLinkNext style={{ color: "##044149" }} />
         </Button>
       </div>
+
+      {showModal && <Modal handleModal={handleModal} />}
     </div>
   );
 };
