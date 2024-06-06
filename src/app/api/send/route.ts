@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const { data, error } = await resend.emails.send({
-      from: "contact <onboarding@resend.dev>",
+      from: "contact <no-reply@sebzz.tech>",
       to: ["sebinsebzz2002@gmail.com"],
       subject: `New message from ${body.email}`,
       html: `<p> First Name: ${body.firstName} </p> <p> Last Name: ${body.lastName} </p> <p> Email: ${body.email} </p> <p> Message: ${body.message} </p>`,

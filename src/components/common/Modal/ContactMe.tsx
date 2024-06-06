@@ -36,13 +36,6 @@ const Modal: React.FC<ModalProps> = ({ handleModal }) => {
         message: true,
       });
     }
-    const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-    if (!emailRegex.test(data.email)) {
-      setError({
-        ...error,
-        email: true,
-      });
-    }
     if (data.email && data.message) {
       const res = await axios.post("/api/send", data);
     }
