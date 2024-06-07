@@ -14,9 +14,19 @@ const Modal: React.FC<ModalProps> = ({ handleModal }) => {
     message: "",
   });
 
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState({
+    email: false,
+    message: false,
+  });
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    setError({
+      ...error,
+      [e.target.name]: false,
+    });
+
     setData({
       ...data,
       [e.target.name]: e.target.value,
@@ -24,6 +34,7 @@ const Modal: React.FC<ModalProps> = ({ handleModal }) => {
   };
 
   const handleSubmit = async () => {
+    setLoading(true);
     if (!data.email) {
       setError({
         ...error,
@@ -38,13 +49,12 @@ const Modal: React.FC<ModalProps> = ({ handleModal }) => {
     }
     if (data.email && data.message) {
       const res = await axios.post("/api/send", data);
+      if (res.status === 200) {
+        handleModal();
+      }
     }
+    setLoading(false);
   };
-
-  const [error, setError] = useState({
-    email: false,
-    message: false,
-  });
 
   const handleBackgroundClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
@@ -134,7 +144,7 @@ const Modal: React.FC<ModalProps> = ({ handleModal }) => {
                 onClick={handleSubmit}
                 type="button"
               >
-                Submit
+                {loading ? "Loading..." : "Submit"}
               </button>
             </div>
           </div>
