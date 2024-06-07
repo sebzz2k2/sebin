@@ -6,4 +6,19 @@ type IExperience = {
   responsibilities: string[];
 };
 
-export type { IExperience };
+type BlogPost = {
+  node: {
+    id: string;
+    title: string;
+    brief: string;
+    publishedAt: string;
+    slug: string;
+    views: number;
+    readTimeInMinutes: number;
+    coverImage: null | {
+      url: string;
+    };
+  };
+  cursor: string;
+};
+export type { IExperience, BlogPost };
