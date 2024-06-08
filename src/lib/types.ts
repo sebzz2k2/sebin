@@ -6,6 +6,27 @@ type IExperience = {
   responsibilities: string[];
 };
 
+type CoverImage = {
+  url: string;
+};
+
+export type GetPostBySlugResponse = {
+  publication: {
+    post: {
+      title: string;
+      subtitle?: string;
+      coverImage: CoverImage | null;
+      content: {
+        html: string;
+      };
+      author: {
+        name: string;
+        profilePicture?: string;
+      };
+    };
+  };
+};
+
 type BlogPost = {
   node: {
     id: string;
@@ -15,9 +36,7 @@ type BlogPost = {
     slug: string;
     views: number;
     readTimeInMinutes: number;
-    coverImage: null | {
-      url: string;
-    };
+    coverImage: CoverImage | null;
   };
   cursor: string;
 };

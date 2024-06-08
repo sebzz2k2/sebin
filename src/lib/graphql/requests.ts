@@ -1,5 +1,5 @@
 import { gql, request } from "graphql-request";
-import { BlogPost } from "../types";
+import { BlogPost, GetPostBySlugResponse } from "../types";
 
 const host = process.env.NEXT_PUBLIC_HASHNODE_HOST;
 export const getPaginatedPosts = async (
@@ -16,9 +16,6 @@ export const getPaginatedPosts = async (
     };
   };
 
-  console.log({
-    host,
-  });
   const query = gql`
     query Publication($host: String, $first: Int!, $after: String) {
       publication(host: $host) {
@@ -76,3 +73,37 @@ export const getBlogCount = async () => {
 
   return data.publication.posts.totalCount;
 };
+
+export async function getPostBySlug(slug: string) {
+  const query = gql`
+    query getPostBySlug($host: String, $slug: String!) {
+      publication(host: $host) {
+        post(slug: $slug) {
+          title
+          subtitle
+          coverImage {
+            url
+          }
+          content {
+            html
+          }
+          author {
+            name
+            profilePicture
+          }
+        }
+      }
+    }
+  `;
+
+  const response = await request<GetPostBySlugResponse>(
+    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT,
+    query,
+    {
+      host,
+      slug,
+    }
+  );
+
+  return response.publication.post;
+}

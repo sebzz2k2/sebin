@@ -9,7 +9,7 @@ const Navbar = () => {
     <nav className="fixed w-full z-50">
       <div className="flex justify-between items-center py-6 px-24">
         <div className="flex items-center"></div>
-        <div className="flex items-center w-2/4 justify-between">
+        <div className="flex items-center w-2/5 justify-between">
           <NavLinks />
           <Button width="120px" height="40px">
             <Link
