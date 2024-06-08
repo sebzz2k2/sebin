@@ -1,7 +1,7 @@
 import { gql, request } from "graphql-request";
 import { BlogPost, GetPostBySlugResponse } from "../types";
 
-const host = process.env.NEXT_PUBLIC_HASHNODE_HOST;
+const host = process.env.NEXT_PUBLIC_HASHNODE_HOST as string;
 export const getPaginatedPosts = async (
   first: number = 9,
   after: string = ""
@@ -39,8 +39,8 @@ export const getPaginatedPosts = async (
       }
     }
   `;
-  const data = await request<Response>(
-    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT,
+  const data = await request<any>(
+    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT as string,
     query,
     {
       host,
@@ -49,29 +49,7 @@ export const getPaginatedPosts = async (
     }
   );
 
-  return data.publication.posts.edges as BlogPost[];
-};
-
-export const getBlogCount = async () => {
-  const query = gql`
-    query Publication($host: String) {
-      publication(host: $host) {
-        posts(first: 0) {
-          totalDocuments
-        }
-      }
-    }
-  `;
-
-  const data = await request(
-    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT,
-    query,
-    {
-      host,
-    }
-  );
-
-  return data.publication.posts.totalCount;
+  return data.publication.posts.edges;
 };
 
 export async function getPostBySlug(slug: string) {
@@ -97,7 +75,7 @@ export async function getPostBySlug(slug: string) {
   `;
 
   const response = await request<GetPostBySlugResponse>(
-    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT,
+    process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT as string,
     query,
     {
       host,

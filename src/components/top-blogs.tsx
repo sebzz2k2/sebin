@@ -5,6 +5,7 @@ import React from "react";
 
 import { useInfiniteQuery } from "@tanstack/react-query";
 import Button from "./common/button";
+import { BlogPost } from "@/lib/types";
 const TopBlogs = ({ initialCursor }: { initialCursor: string }) => {
   const { data, hasNextPage, fetchNextPage, isFetching } = useInfiniteQuery({
     queryKey: ["posts"],
@@ -19,8 +20,8 @@ const TopBlogs = ({ initialCursor }: { initialCursor: string }) => {
         All Blogs
       </h1>
       <div className="grid gap-12 items-start justify-between w-full md:grid-cols-2 xl:grid-cols-3">
-        {data?.pages.map((group) =>
-          group?.map((blog) => (
+        {data?.pages.map((group: any) =>
+          group?.map((blog: BlogPost) => (
             <PostPreview
               excerpt={blog.node.brief}
               slug={blog.node.slug}

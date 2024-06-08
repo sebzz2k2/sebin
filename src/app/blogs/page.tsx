@@ -7,7 +7,7 @@ import {
   QueryClient,
   dehydrate,
 } from "@tanstack/react-query";
-import { getBlogCount, getPaginatedPosts } from "../../lib/graphql/requests";
+import { getPaginatedPosts } from "../../lib/graphql/requests";
 import { BlogPost } from "@/lib/types";
 const getBlogs = async () => {
   const data = await getPaginatedPosts(1, "");
