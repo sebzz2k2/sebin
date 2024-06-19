@@ -1,8 +1,5 @@
 "use client";
 import ExperienceTimeline from "../../components/Timeline";
-import axios from "axios";
-import { IExperience } from "../../lib/types";
-import { useQuery, queryClient } from "@tanstack/react-query";
 import { getExperience } from "@/lib/axios/requests";
 import { useEffect } from "react";
 import React from "react";
