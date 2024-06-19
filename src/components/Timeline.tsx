@@ -11,11 +11,11 @@ import { IExperience } from "./../lib/types";
 const ExperienceTimeline = ({
   experiences,
 }: {
-  experiences: IExperience[];
+  experiences: IExperience[] | undefined;
 }) => {
   return (
     <VerticalTimeline>
-      {experiences.map((experience: IExperience, idx: number) => (
+      {experiences?.map((experience: IExperience, idx: number) => (
         <VerticalTimelineElement
           key={idx}
           date={`${experience.startDate} - ${experience.endDate}`}

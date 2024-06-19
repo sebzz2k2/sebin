@@ -1,21 +1,21 @@
+"use client";
 import Button from "@/components/common/button";
 import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
-import axios from "axios";
-export const revalidate = 10;
-async function fetchProjects() {
-  "use server";
-  const projectsUrl =
-    "https://raw.githubusercontent.com/sebzz2k2/sebin-assets/main/portfolio/projects.json";
-  const response = await axios.get(projectsUrl);
-  return response.data;
-}
-const Projects = async () => {
-  const projects = await fetchProjects();
+import { fetchProjects } from "@/lib/axios/requests";
+
+const Projects = () => {
+  const [projects, setProjects] = React.useState([]);
+
+  React.useEffect(() => {
+    fetchProjects().then((data) => {
+      setProjects(data);
+    });
+  }, []);
   return (
     <div className="h-[calc(100vh-6rem)] px-16 py-8 flex  flex-col gap-16 overflow-auto">
-      {projects.map((project: any) => (
+      {projects?.map((project: any) => (
         <ProjectCard
           key={project.id}
           title={project.title}
