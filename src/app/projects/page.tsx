@@ -5,6 +5,7 @@ import React from "react";
 import axios from "axios";
 
 async function fetchProjects() {
+  "use server";
   const projectsUrl =
     "https://raw.githubusercontent.com/sebzz2k2/sebin-assets/main/portfolio/projects.json";
   const response = await axios.get(projectsUrl);

@@ -2,6 +2,7 @@ import ExperienceTimeline from "../../components/Timeline";
 import axios from "axios";
 import { IExperience } from "../../lib/types";
 async function getExperiences() {
+  "use server";
   const experiencesUrl =
     "https://raw.githubusercontent.com/sebzz2k2/sebin-assets/main/portfolio/experience.json";
   const response = await axios.get(experiencesUrl);
