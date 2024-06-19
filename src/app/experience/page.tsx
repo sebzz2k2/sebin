@@ -1,6 +1,7 @@
 import ExperienceTimeline from "../../components/Timeline";
 import axios from "axios";
 import { IExperience } from "../../lib/types";
+export const revalidate = 10;
 async function getExperiences() {
   "use server";
   const experiencesUrl =

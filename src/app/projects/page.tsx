@@ -3,7 +3,7 @@ import { ArrowRightIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 import React from "react";
 import axios from "axios";
-
+export const revalidate = 10;
 async function fetchProjects() {
   "use server";
   const projectsUrl =
