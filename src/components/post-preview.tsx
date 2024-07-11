@@ -26,19 +26,19 @@ const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
       <div className="col-span-1 flex flex-col gap-2">
         <h1 className="text-lg font-semibold leading-tight text-cyan-900 font-firaCode">
           <Link
-            href={postURL}
+            href={slug}
             className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"
           >
             {title}
           </Link>
         </h1>
-        <Link href={postURL}>
+        <Link href={slug}>
           <p className="text-md leading-snug font-firaCode text-cyan-800">
             {excerpt.length > 140 ? excerpt.substring(0, 140) + "…" : excerpt}
           </p>
         </Link>
         <div className="text-sm font-semibold fontfiraCode text-cyan-900">
-          <Link href={postURL}>
+          <Link href={slug}>
             <DateFormatter dateString={date} />
           </Link>
         </div>
