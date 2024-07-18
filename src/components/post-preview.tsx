@@ -12,7 +12,7 @@ type Props = {
 };
 
 const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
-  const postURL = `/${slug}`;
+  const postURL = `blogs/${slug}`;
 
   return (
     <div className="grid grid-cols-1 gap-5">
