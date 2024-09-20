@@ -5,7 +5,6 @@ import Navbar from "@/components/Navbar";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import SideLink from "@/components/SideLink";
-import Providers from "@/components/providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +22,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Providers>
           <div className="bg-neutral-100 w-screen overflow-hidden ">
             <Navbar />
             <div className=" blob-c overflow-hidden scroll-m-3">
@@ -38,7 +36,6 @@ export default function RootLayout({
             <Analytics />
             <SpeedInsights />
           </div>
-        </Providers>
       </body>
     </html>
   );
