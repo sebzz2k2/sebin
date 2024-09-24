@@ -17,10 +17,6 @@ const nextConfig = {
 			{
 				source: "/x",
 				destination: "https://x.com/sebin2k2"
-			},
-			{
-				source: "/in",
-				destination: "https://www.linkedin.com/in/sebin-chacko-mathew-29404722a/"
 			}
 		];
 	},
